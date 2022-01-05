@@ -28,24 +28,28 @@ Att.<br>Alexandre Damaso</p>
 dtnAlexandre = 1
 dtnCanecas = 1
 
+emailPRP = "alexandredamasocosta@gmail.com"
+arqBPAPRP = "R507-ALEXANDRE.txt"
+anexoPRP = "C:\SFinal\{arqBPAPRP}", "C:\SFinal\R507-CANECAS.txt"
+
 #Alexandre Damaso
 if dtnAlexandre == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
-    email_msg['To'] = "alexandredamasocosta@gmail.com"
+    email_msg['To'] = emailPRP
     email_msg['Subject'] = assunto
     email_msg.attach(MIMEText(corpo,'html'))
-    anexo = "C:\SFinal\R507-ALEXANDRE.txt"
+    #anexo = "C:\SFinal\R507-ALEXANDRE.txt"
     attchment = open(anexo,'rb')
     att = MIMEBase('application', 'octet-stream')
     att.set_payload(attchment.read())
     encoders.encode_base64(att)
-    att.add_header('Content-Disposition',f'attachment; filename=R507-ALEXANDRE.txt')
+    att.add_header('Content-Disposition',f'attachment; filename={arqBPAPRP}')
     attchment.close()
     email_msg.attach(att)
     server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
-#Aliança Canecas
+"""#Aliança Canecas
 if dtnCanecas == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
@@ -60,6 +64,6 @@ if dtnCanecas == 1:
     att.add_header('Content-Disposition',f'attachment; filename=R507-CANECAS.txt')
     attchment.close()
     email_msg.attach(att)
-    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())"""
 
 server.quit()
