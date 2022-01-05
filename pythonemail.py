@@ -26,7 +26,7 @@ Verificar ajustes e corrigir até 15/01/2022<br><br>
 Att.<br>Alexandre Damaso</p>
 """
 dtnAlexandre = 1
-dtnCanecas = 0
+dtnCanecas = 1
 
 #Alexandre Damaso
 if dtnAlexandre == 1:
