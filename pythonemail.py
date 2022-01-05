@@ -25,37 +25,41 @@ corpo = """
 Verificar ajustes e corrigir até 15/01/2022<br><br>
 Att.<br>Alexandre Damaso</p>
 """
+dtnAlexandre = 1
+dtnCanecas = 0
 
 #Alexandre Damaso
-email_msg = MIMEMultipart()
-email_msg['From'] = login
-email_msg['To'] = "alexandredamasocosta@gmail.com"
-email_msg['Subject'] = assunto
-email_msg.attach(MIMEText(corpo,'html'))
-anexo = "D:\SFinal\R507-ALEXANDRE.TXT"
-attchment = open(anexo,'rb')
-att = MIMEBase('application', 'octet-stream')
-att.set_payload(attchment.read())
-encoders.encode_base64(att)
-att.add_header('Content-Disposition',f'attachment; filename=R507-ALEXANDRE.TXT')
-attchment.close()
-email_msg.attach(att)
-server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
+if dtnAlexandre == 1:
+    email_msg = MIMEMultipart()
+    email_msg['From'] = login
+    email_msg['To'] = "alexandredamasocosta@gmail.com"
+    email_msg['Subject'] = assunto
+    email_msg.attach(MIMEText(corpo,'html'))
+    anexo = "C:\SFinal\R507-ALEXANDRE.txt"
+    attchment = open(anexo,'rb')
+    att = MIMEBase('application', 'octet-stream')
+    att.set_payload(attchment.read())
+    encoders.encode_base64(att)
+    att.add_header('Content-Disposition',f'attachment; filename=R507-ALEXANDRE.txt')
+    attchment.close()
+    email_msg.attach(att)
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
 #Aliança Canecas
-email_msg = MIMEMultipart()
-email_msg['From'] = login
-email_msg['To'] = "aliancacanecas@gmail.com"
-email_msg['Subject'] = assunto
-email_msg.attach(MIMEText(corpo,'html'))
-anexo = "D:\SFinal\R507-CANECAS.TXT"
-attchment = open(anexo,'rb')
-att = MIMEBase('application', 'octet-stream')
-att.set_payload(attchment.read())
-encoders.encode_base64(att)
-att.add_header('Content-Disposition',f'attachment; filename=R507-CANECAS.TXT')
-attchment.close()
-email_msg.attach(att)
-server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
+if dtnCanecas == 1:
+    email_msg = MIMEMultipart()
+    email_msg['From'] = login
+    email_msg['To'] = "aliancacanecas@gmail.com"
+    email_msg['Subject'] = assunto
+    email_msg.attach(MIMEText(corpo,'html'))
+    anexo = "C:\SFinal\R507-CANECAS.txt"
+    attchment = open(anexo,'rb')
+    att = MIMEBase('application', 'octet-stream')
+    att.set_payload(attchment.read())
+    encoders.encode_base64(att)
+    att.add_header('Content-Disposition',f'attachment; filename=R507-CANECAS.txt')
+    attchment.close()
+    email_msg.attach(att)
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
 server.quit()
