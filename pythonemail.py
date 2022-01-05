@@ -25,26 +25,61 @@ corpo = """
 Verificar ajustes e corrigir até 15/01/2022<br><br>
 Att.<br>Alexandre Damaso</p>
 """
-dtnAlexandre = 1
-dtnCanecas = 1
+dtn_PRP = 1
+dtn_ = 0
 
-emailPRP = "alexandredamasocosta@gmail.com"
-arqBPAPRP = "R507-ALEXANDRE.txt"
-anexoPRP = "C:\SFinal\{arqBPAPRP}", "C:\SFinal\R507-CANECAS.txt"
+# PRP - POSSE
+email_PRP = "alexandredamasocosta@gmail.com"
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
+email_ = ""
 
 #Alexandre Damaso
-if dtnAlexandre == 1:
+if dtn_PRP == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
-    email_msg['To'] = emailPRP
+    email_msg['To'] = email_PRP
     email_msg['Subject'] = assunto
     email_msg.attach(MIMEText(corpo,'html'))
-    #anexo = "C:\SFinal\R507-ALEXANDRE.txt"
+    anexo = "C:\SFinal\R507-ALEXANDRE.zip"
     attchment = open(anexo,'rb')
     att = MIMEBase('application', 'octet-stream')
     att.set_payload(attchment.read())
     encoders.encode_base64(att)
-    att.add_header('Content-Disposition',f'attachment; filename={arqBPAPRP}')
+    att.add_header('Content-Disposition',f'attachment; filename=R507-ALEXANDRE.zip')
     attchment.close()
     email_msg.attach(att)
     server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
