@@ -18,87 +18,73 @@ server.ehlo()
 server.starttls()
 server.login(login,senha)
 
-# 02 - Construir o email timo MIME
-assunto = "Prévia da Síntese de Produção Ambulatorial - 12/2021"
+# 02 - Construir o email timo MIME/HTML
+assunto = "Teste com arquivo do Juarez Barbosa"
 corpo = """
-<p>Prévia da Síntese de Produção Ambulatorial - 12/2021<br>
+<p>Teste com arquivos grande para envio de Prévia da Síntese de Produção Ambulatorial<br>
 Verificar ajustes e corrigir até 15/01/2022<br><br>
 Att.<br>Alexandre Damaso</p>
 """
-dtn_PRP = 1
-dtn_ = 0
 
-# PRP - POSSE
-email_PRP = "alexandredamasocosta@gmail.com"
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
-email_ = ""
+# Seletores de envio
+dtn_ALEXANDRE = 1
+dtn_EDNA = 1
+dtn_ZECARLOS = 1
+
+# lista de e-mails
+email_ZECARLOS = "josecarlosgo@gmail.com"
+email_EDNA = "edna.prado@goias.gov.br"
+email_ALEXANDRE = "alexandredamasocosta@gmail.com"
 
 #Alexandre Damaso
-if dtn_PRP == 1:
+if dtn_ALEXANDRE == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
-    email_msg['To'] = email_PRP
+    email_msg['To'] = email_ALEXANDRE
     email_msg['Subject'] = assunto
     email_msg.attach(MIMEText(corpo,'html'))
-    anexo = "C:\SFinal\R507-ALEXANDRE.zip"
+    anexo = "C:\SFinal\R507-JB.zip"
     attchment = open(anexo,'rb')
     att = MIMEBase('application', 'octet-stream')
     att.set_payload(attchment.read())
     encoders.encode_base64(att)
-    att.add_header('Content-Disposition',f'attachment; filename=R507-ALEXANDRE.zip')
+    att.add_header('Content-Disposition',f'attachment; filename=R507-JB.zip')
     attchment.close()
     email_msg.attach(att)
     server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
-"""#Aliança Canecas
-if dtnCanecas == 1:
+#EDNA
+if dtn_EDNA == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
-    email_msg['To'] = "aliancacanecas@gmail.com"
+    email_msg['To'] = email_EDNA
     email_msg['Subject'] = assunto
     email_msg.attach(MIMEText(corpo,'html'))
-    anexo = "C:\SFinal\R507-CANECAS.txt"
+    anexo = "C:\SFinal\R507-JB.zip"
     attchment = open(anexo,'rb')
     att = MIMEBase('application', 'octet-stream')
     att.set_payload(attchment.read())
     encoders.encode_base64(att)
-    att.add_header('Content-Disposition',f'attachment; filename=R507-CANECAS.txt')
+    att.add_header('Content-Disposition',f'attachment; filename=R507-JB.zip')
     attchment.close()
     email_msg.attach(att)
-    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())"""
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
+
+    #ZE CARLOS
+if dtn_ZECARLOS == 1:
+    email_msg = MIMEMultipart()
+    email_msg['From'] = login
+    email_msg['To'] = email_ZECARLOS
+    email_msg['Subject'] = assunto
+    email_msg.attach(MIMEText(corpo,'html'))
+    anexo = "C:\SFinal\R507-JB.zip"
+    attchment = open(anexo,'rb')
+    att = MIMEBase('application', 'octet-stream')
+    att.set_payload(attchment.read())
+    encoders.encode_base64(att)
+    att.add_header('Content-Disposition',f'attachment; filename=R507-JB.zip')
+    attchment.close()
+    email_msg.attach(att)
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
 server.quit()
