@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import smtplib
 #SMTP - Simple Mail Transfer Protocol
 #Para criar o servidor e enviar o e-mail
@@ -12,7 +11,7 @@ from email import encoders
 host = "smtp.gmail.com"
 port = "587"
 login = "cpi.sesgo@gmail.com"
-senha = "Cpi_32014991"
+senha = "*****"
 
 server = smtplib.SMTP(host, port)
 server.ehlo()
@@ -29,8 +28,8 @@ Att.<br>Alexandre Damaso</p>
 
 # Seletores de envio
 dtn_ALEXANDRE = 1
-dtn_EDNA = 1
-dtn_ZECARLOS = 1
+dtn_EDNA = 0
+dtn_ZECARLOS = 0
 
 # lista de e-mails
 email_ZECARLOS = "josecarlosgo@gmail.com"
@@ -54,7 +53,7 @@ if dtn_ALEXANDRE == 1:
     email_msg.attach(att)
     server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
-#EDNA
+"""#EDNA
 if dtn_EDNA == 1:
     email_msg = MIMEMultipart()
     email_msg['From'] = login
@@ -86,9 +85,6 @@ if dtn_ZECARLOS == 1:
     att.add_header('Content-Disposition',f'attachment; filename=R507-JB.zip')
     attchment.close()
     email_msg.attach(att)
-    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
+    server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())"""
 
 server.quit()
-=======
-# teste de amail
->>>>>>> 09c566eb641e2d2bbac82d25adeffc33c7b1c413
