@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import smtplib
 #SMTP - Simple Mail Transfer Protocol
 #Para criar o servidor e enviar o e-mail
@@ -88,3 +89,6 @@ if dtn_ZECARLOS == 1:
     server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
 server.quit()
+=======
+# teste de amail
+>>>>>>> 09c566eb641e2d2bbac82d25adeffc33c7b1c413
